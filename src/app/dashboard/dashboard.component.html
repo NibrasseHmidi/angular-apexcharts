@@ -1,0 +1,63 @@
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 w-full mt-6 md:mt-8">
+  <div class="flex flex-col  flex-auto bg-card shadow rounded-2xl overflow-hidden p-2">
+    <div>
+      <div style="text-align:center">
+        <apx-chart
+          [series]="chartOptions.series"
+          [chart]="chartOptions.chart"
+          [xaxis]="chartOptions.xaxis"
+          [title]="chartOptions.title"
+        ></apx-chart>
+      </div>
+
+    </div>
+  </div>
+  <div class="flex flex-col  flex-auto bg-card shadow rounded-2xl overflow-hidden p-2">
+
+    <div class="mt-3 sm:mt-0 sm:ml-2">
+      <mat-button-toggle-group class="flex justify-end" value="Chart1" [(ngModel)]="isEnabled">
+        <mat-button-toggle [value]=true>Chart1</mat-button-toggle>
+        <mat-button-toggle [value]=false>Chart2</mat-button-toggle>
+      </mat-button-toggle-group>
+
+      <div *ngIf="isEnabled"  value="Chart1">
+
+  <apx-chart
+    [series]="pieChartOptions.series"
+    [chart]="pieChartOptions.chart"
+    [labels]="pieChartOptions.labels"
+    [responsive]="pieChartOptions.responsive"
+  ></apx-chart>
+     </div>
+
+
+        <div *ngIf="!isEnabled"  value="Chart1">
+
+            <apx-chart
+              [series]="areaChartOptions.series"
+              [chart]="areaChartOptions.chart"
+              [xaxis]="areaChartOptions.xaxis"
+              [stroke]="areaChartOptions.stroke"
+              [dataLabels]="areaChartOptions.dataLabels"
+              [yaxis]="areaChartOptions.yaxis"
+              [labels]="areaChartOptions.labels"
+              [legend]="areaChartOptions.legend"
+              [title]="areaChartOptions.title"
+              [subtitle]="areaChartOptions.subtitle"
+            ></apx-chart>
+
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col  flex-auto bg-card shadow rounded-2xl overflow-hidden p-2">
+      <apx-chart
+        [series]="scatterChartOptions.series"
+        [chart]="scatterChartOptions.chart"
+        [xaxis]="scatterChartOptions.xaxis"
+        [yaxis]="scatterChartOptions.yaxis"
+        [dataLabels]="scatterChartOptions.dataLabels"
+        [grid]="scatterChartOptions.grid"
+      ></apx-chart>
+    </div>
+  </div>
+
