@@ -15,6 +15,7 @@ COPY . .
 
 # Install Angular CLI globally
 RUN npm install -g @angular/cli
+RUN npm run i18n:find
 
 # Build the Angular app
 RUN npm run build --prod
