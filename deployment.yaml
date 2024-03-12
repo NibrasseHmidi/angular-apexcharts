@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: angular_k8s_test-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: angular_k8s_test 
+  template:
+    metadata:
+      labels:
+        app: angular_k8s_test
+    spec:
+      containers:
+        - name: angular_k8s_test
+          image: nibrassehmidi/angular_k8s_test:latest
+          ports:
+            - containerPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: angular_k8s_test-service
+spec:
+  selector:
+    app: angular_k8s_test
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000
+  type: LoadBalancer
