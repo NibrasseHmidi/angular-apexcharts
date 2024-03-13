@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: angular-k8s-test-deployment
+  name: Angular-ApexCharts-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: angular-k8s-test 
+      app: Angular-ApexCharts 
   template:
     metadata:
       labels:
-        app: angular-k8s-test
+        app: Angular-ApexCharts
     spec:
       containers:
-        - name: angular-k8s-test
+        - name: Angular-ApexCharts-container
           image: nibrassehmidi/angular_k8s_test:latest
           ports:
             - containerPort: 8000
@@ -21,10 +21,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: angular-k8s-test-service
+  name: Angular-ApexCharts-service
 spec:
   selector:
-    app: angular-k8s-test
+    app: Angular-ApexCharts
   ports:
     - protocol: TCP
       port: 80
