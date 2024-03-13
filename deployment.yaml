@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: angular_k8s_test-deployment
+  name: angular-k8s-test-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: angular_k8s_test 
+      app: angular-k8s-test 
   template:
     metadata:
       labels:
-        app: angular_k8s_test
+        app: angular-k8s-test
     spec:
       containers:
-        - name: angular_k8s_test
+        - name: angular-k8s-test
           image: nibrassehmidi/angular_k8s_test:latest
           ports:
             - containerPort: 8000
@@ -21,10 +21,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: angular_k8s_test-service
+  name: angular-k8s-test-service
 spec:
   selector:
-    app: angular_k8s_test
+    app: angular-k8s-test
   ports:
     - protocol: TCP
       port: 80
